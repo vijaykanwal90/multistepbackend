@@ -188,8 +188,7 @@ const updateProfile = async (req, res) => {
 
     if (profilePhoto) {
       try {
-        // Optional: delete old image from Cloudinary
-        // if (user.profilePhoto) await deleteFromCloudinary(user.profilePhoto);
+       
 
         const uploadResult = await uploadCloudinary(profilePhoto.path);
         cloudinaryImageUrl = uploadResult?.secure_url || user.profilePhoto;
@@ -200,7 +199,7 @@ const updateProfile = async (req, res) => {
     }
 
     // 🔧 Update user fields
-    user.profile = cloudinaryImageUrl;
+    user.profilePhoto = cloudinaryImageUrl;
     if (userName) user.userName = userName;
     if (email) user.email = email;
     if (profession) user.profession = profession;
