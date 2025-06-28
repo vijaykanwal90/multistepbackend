@@ -10,7 +10,11 @@ const app = express();
 // app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
-const allowedOrigins = ['http://localhost:5173',"https://multi-step-form-frontend-liart.vercel.app/"];
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://multi-step-form-frontend-liart.vercel.app'
+];
+
 app.use(cors({
     origin: function (origin, callback) {
       if (!origin || allowedOrigins.includes(origin)) {
@@ -25,7 +29,7 @@ app.use(cors({
     exposedHeaders: ['Content-Type', 'Authorization'],
   }));
   
-  // app.options('*', cors()); // Preflight request handling
+  app.options('*', cors()); // Preflight request handling
   app.use(express.json());
 // const PORT = process.env.PORT || 5000;
 app.use('/api/user', userRouter);
