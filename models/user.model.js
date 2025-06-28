@@ -70,7 +70,7 @@ dob: {
   newsLetter: {
     type: Boolean,
   
-  },
+},
 },
 { timestamps: true }
 );

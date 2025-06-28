@@ -160,7 +160,7 @@ const updateProfile = async (req, res) => {
   try {
     const userId = req.user.id;
     console.log("updating profiel")
-    // ⛳ Parse JSON string from FormData (from frontend)
+   
     const parsedFormData = JSON.parse(req.body.formData);
 
     const {
@@ -221,7 +221,6 @@ const updateProfile = async (req, res) => {
 
     await user.save();
 
-    // 🧹 Sanitize response
     const safeUser = user.toObject();
     delete safeUser.password;
 
