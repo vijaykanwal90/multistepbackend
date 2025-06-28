@@ -237,6 +237,15 @@ const updateProfile = async (req, res) => {
     return res.status(500).json({ message: "Server error during profile update" });
   }
 };
+const logout = async (req, res) => {
+  try {
+   
+    return res.status(200).json({ message: "Logged out successfully" });
+  } catch (error) {
+    console.error("Logout error:", error);
+    return res.status(500).json({ message: "Logout failed" });
+  }
+};
 export const isStrongPassword = (password) => {
     const minLength = 8;
     const hasNumber = /\d/;
@@ -253,4 +262,4 @@ export const isStrongPassword = (password) => {
   
  
   
-export {registerUser,loginUser,getUser,validatePersonalData,updateProfile}
+export {registerUser,loginUser,getUser,validatePersonalData,updateProfile,logout}
