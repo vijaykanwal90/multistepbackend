@@ -14,6 +14,7 @@ const allowedOrigins = [
   'http://localhost:5173',
   'https://multi-step-form-frontend-liart.vercel.app'
 ];
+// app.options('*', cors()); // Preflight request handling
 
 app.use(cors({
     origin: function (origin, callback) {
@@ -29,7 +30,6 @@ app.use(cors({
     exposedHeaders: ['Content-Type', 'Authorization'],
   }));
   
-  app.options('*', cors()); // Preflight request handling
   app.use(express.json());
 // const PORT = process.env.PORT || 5000;
 app.use('/api/user', userRouter);
