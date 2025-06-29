@@ -182,7 +182,7 @@ const updateProfile = async (req, res) => {
     const user = await User.findById(userId);
     if (!user) return res.status(404).json({ message: "User not found" });
 
-    // 🔄 Handle profile image upload
+    // Handle profile image upload
     const profilePhoto = req.file;
     let cloudinaryImageUrl = user.profilePhoto;
 
@@ -198,7 +198,7 @@ const updateProfile = async (req, res) => {
       }
     }
 
-    // 🔧 Update user fields
+    //  Update user fields
     user.profilePhoto = cloudinaryImageUrl;
     if (userName) user.userName = userName;
     if (email) user.email = email;
@@ -213,7 +213,7 @@ const updateProfile = async (req, res) => {
     if (gender) user.gender = gender;
     if (dob) user.dob = dob;
 
-    // 🔐 Handle password update
+    //  Handle password update
     if (newPassword) {
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(newPassword, salt);

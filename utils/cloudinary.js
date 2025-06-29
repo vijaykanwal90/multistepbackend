@@ -10,7 +10,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// Extract public ID from Cloudinary URL
 const getPublicIdFromUrl = (url) => {
   try {
     const urlObj = new URL(url);
@@ -45,24 +44,6 @@ const uploadCloudinary = async (localFilePath) => {
   }
 };
 
-// // Delete asset from Cloudinary
-// const deleteFromCloudinary = async (cloudinaryFilePath) => {
-//   try {
-//     if (!cloudinaryFilePath) {
-//       throw new Error("Invalid Cloudinary URL");
-//     }
-
-//     const publicId = getPublicIdFromUrl(cloudinaryFilePath);
-//     if (!publicId) {
-//       throw new Error("Could not extract public ID from URL");
-//     }
-
-//     const response = await cloudinary.uploader.destroy(publicId);
-//     return response;
-//   } catch (error) {
-//     throw new Error(error?.message || "Error occurred while destroying the asset");
-//   }
-// };
 
 export {
   uploadCloudinary,
