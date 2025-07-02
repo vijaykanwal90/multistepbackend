@@ -30,6 +30,11 @@ app.use(cors({
   }));
   
   app.use(express.json());
+  app.use((req, res, next) => {
+  req.setTimeout(300000); // 5 minutes
+  res.setTimeout(300000);
+  next();
+});
 // const PORT = process.env.PORT || 5000;
 app.use('/api/user', userRouter);
 

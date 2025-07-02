@@ -208,8 +208,8 @@ const updateProfile = async (req, res) => {
     if (country) user.country = country;
     if (state) user.state = state;
     if (city) user.city = city;
-    if (subscriptionPlan) user.subscriptionPlan = subscriptionPlan;
-    if (typeof newsletter !== "undefined") user.newsletter = newsletter;
+    if (subscriptionPlan) user.subscription = subscriptionPlan;
+    if (typeof newsletter !== "undefined") user.newsLetter = newsletter;
     if (gender) user.gender = gender;
     if (dob) user.dob = dob;
 
